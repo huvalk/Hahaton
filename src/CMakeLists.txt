@@ -1,4 +1,4 @@
-set(EXECUTABLES vision.cpp)
+set(EXECUTABLES Vision.cpp ImageOperator.cpp FrontalFaceDetector.cpp)
 # Make an automatic library - will be static or dynamic based on user setting
 add_library(vision ${EXECUTABLES})
 
