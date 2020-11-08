@@ -1,0 +1,13 @@
+FROM ubuntu:16.04
+
+USER root
+
+COPY cmd /home/cmd
+
+WORKDIR /home/cmd
+
+RUN apt -y update && apt-get -y upgrade && apt-get -y dist-upgrade && apt-get -y autoremove && \
+    apt install -y wget zip unzip gcc g++ build-essential cmake
+
+RUN ./build_opencv.sh
+

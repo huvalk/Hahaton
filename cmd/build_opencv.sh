@@ -34,41 +34,42 @@ apt install -y \
         pkg-config
 
 apt install -y \
-    qt5-default \
-    libvtk6-dev \
-    zlib1g-dev \
-    libjpeg-dev \
-    libwebp-dev \
-    libpng-dev \
-    libtiff5-dev \
-    libjasper-dev \
-    libopenexr-dev \
-    libgdal-dev \
-    libdc1394-22-dev \
+    gfortran \
+    libatlas-base-dev \
+    liblapacke-dev \
+    liblapack-dev \
     libavcodec-dev \
     libavformat-dev \
     libswscale-dev \
-    libtheora-dev \
-    libvorbis-dev \
+    libv4l-dev \
+    v4l-utils \
     libxvidcore-dev \
     libx264-dev \
-    yasm \
-    libfaac-dev \
-    libopencore-amrnb-dev \
-    libopencore-amrwb-dev \
-    libv4l-dev \
-    libxine2-dev \
+    libfontconfig1-dev \
+    libcairo2-dev \
+    libgdk-pixbuf2.0-dev \
+    libpango1.0-dev \
+    libgtk2.0-dev \
+    libgtk-3-dev \
+    libcanberra-gtk3* \
+    libhdf5-dev \
+    libhdf5-serial-dev \
+    libhdf5-103 \
+    libqtgui4 \
+    libqtwebkit4 \
+    libqt4-test \
+    python3-pyqt5 \
+        libgstreamer1.0-dev \
+        libgstreamer-plugins-base1.0-dev \
+    libjpeg-dev \
+    libtiff-dev \
+    libpng-dev \
+    libjasper-dev \
     libtbb-dev \
-    libeigen3-dev \
-    python-dev \
-    python-tk \
-    python-numpy \
+    libtbb2 \
     python3-dev \
-    python3-tk \
-    python3-numpy \
-    doxygen \
-    sphinx-common \
-    texlive-latex-extra
+    python3-pip \
+    python3-numpy
 
 
 
