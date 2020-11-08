@@ -26,8 +26,8 @@ jobs:
         run: |
           docker buildx build \
             --platform linux/arm/v7 \
-            --output "type=image,push=false" \
-            -t ${{ secrets.DOCKERHUB_USERNAME }}/hahaton:latest .
+            --output "type=image,push=true" \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/hahaton:armv7 .
       - name: Check images
         run: |
           docker image ls --all
