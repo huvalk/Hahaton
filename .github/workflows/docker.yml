@@ -27,7 +27,7 @@ jobs:
           docker buildx build \
             --platform linux/arm/v6,linux/arm/v7,linux/arm/v8,linux/arm64 \
             --output "type=image,push=false" \
-            -t ${{ secrets.DOCKERHUB_USERNAME }}/hahaton:latest . \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/hahaton:latest .
       - name: Push the images
-          run: |
-            docker push ${{ secrets.DOCKERHUB_USERNAME }}/hahaton:latest
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/hahaton:latest
