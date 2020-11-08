@@ -1,0 +1,9 @@
+FROM ubuntu:18.04
+
+USER root
+
+COPY ./cmd /home/cmd
+
+WORKDIR /home/cmd
+	
+RUN ./build_opencv.sh

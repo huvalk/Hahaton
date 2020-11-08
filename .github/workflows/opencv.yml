@@ -1,10 +1,7 @@
-name: buildx
+name: buildx opencv
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - deploy
 
 jobs:
   buildx:
@@ -27,10 +24,5 @@ jobs:
           docker buildx build \
             --platform linux/arm/v7 \
             --output "type=image,push=true" \
-            -t ${{ secrets.DOCKERHUB_USERNAME }}/hahaton:armv7 .
-      - name: Check images
-        run: |
-          docker image ls --all
-      - name: Push the images
-        run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/hahaton:latest
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/opencv:armv7 \
+            --file ./docker/OpenCV .
