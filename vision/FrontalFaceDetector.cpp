@@ -6,13 +6,10 @@
 #include <opencv2/objdetect.hpp>
 #include "vision/FrontalFaceDetector.hpp"
 #include <iostream>
-#include <filesystem>
 
 namespace Vision {
     FrontalFaceDetector::FrontalFaceDetector(const std::string& eye_cascade, const std::string& face_cascade) noexcept
             : m_eye_classifier(eye_cascade), m_face_classifier(face_cascade){
-        auto path =  std::filesystem::current_path();
-        std::cout << path << std::flush;
     }
 
     std::vector<cv::Rect> FrontalFaceDetector::detectObject(const cv::Mat& image) {
