@@ -27,11 +27,10 @@ jobs:
           docker buildx build \
             --platform linux/arm/v7 \
             --output "type=image,push=false" \
-            -t ${{ secrets.DOCKERHUB_USERNAME }}/hahaton .
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/hahaton:latest .
       - name: Check images
         run: |
-          docker images list
-          docker container list
+          docker images huvalk/hahaton
       - name: Push the images
         run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/hahaton
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/hahaton:latest
