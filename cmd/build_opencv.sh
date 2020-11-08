@@ -24,16 +24,16 @@ mv opencv_contrib-4.4.0 opencv_contrib
 
 echo "DK-INFO: Install OpenCV build dependencies"
 
-sudo apt update && sudo apt upgrade -y
-sudo apt-get dist-upgrade -y --autoremove
+apt update && apt upgrade -y
+apt-get dist-upgrade -y --autoremove
 
-sudo apt install -y \
+apt install -y \
         build-essential \
         cmake \
         git \
         pkg-config
 
-sudo apt install -y \
+apt install -y \
     gfortran \
     libatlas-base-dev \
     liblapacke-dev \
@@ -106,7 +106,7 @@ echo "DK-INFO>Make"
 make -j4
 
 echo "DK-INFO>Make Install"
-sudo make install
+make install
 
 
 echo "DK-INFO>Done! Now do this command to finish installion = sudo ldconfig"

@@ -1,0 +1,21 @@
+FROM ubuntu:18.04
+
+USER root
+
+COPY cmd /home/cmd
+
+WORKDIR /home/cmd
+
+RUN apt-get update && \
+    apt-get install -y wget zip unzip gcc g++ build-essential
+
+RUN wget https://github.com/Kitware/CMake/releases/download/v3.15.2/cmake-3.15.2.tar.gz && \
+    tar -zxvf cmake-3.15.2.tar.gz && \
+    cd cmake-3.15.2 && \
+    ./bootstrap && \
+    make && \
+    make install && \
+    cmake --version
+
+RUN ./build_opencv.sh
+
