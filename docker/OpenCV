@@ -6,7 +6,7 @@ COPY ../cmd /home/cmd
 
 WORKDIR /home/cmd
 
-RUN apt-get update && \
+RUN apt-get -y update && apt-get -y upgrade && apt-get -y dist-upgrade && apt-get -y autoremove && \
     apt-get install -y wget zip unzip gcc g++ build-essential cmake
 
 RUN ./build_opencv.sh
