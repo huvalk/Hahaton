@@ -5,8 +5,8 @@
 #include "vision/Vision.hpp"
 #include "vision/FrontalFaceDetector.hpp"
 
-#define FRONTAL_FACE "../haar_cascades/haarcascade_frontalface_default.xml"
-#define FRONTAL_EYE "../haar_cascades/haarcascade_eye.xml"
+#define FRONTAL_FACE "../../haar_cascades/haarcascade_frontalface_default.xml"
+#define FRONTAL_EYE "../../haar_cascades/haarcascade_eye.xml"
 
 namespace Vision {
 
