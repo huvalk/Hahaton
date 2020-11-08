@@ -30,7 +30,7 @@ jobs:
             -t ${{ secrets.DOCKERHUB_USERNAME }}/hahaton:latest .
       - name: Check images
         run: |
-          docker image ls
+          docker image ls --all
       - name: Push the images
         run: |
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/hahaton:latest
