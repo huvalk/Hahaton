@@ -35,7 +35,7 @@ namespace Vision {
 
             if (intersects) {
                 result.push_back(face);
-                std::cout << "Found it" << std::flash;
+                std::cout << "Found it" << std::flush;
             }
         }
 
