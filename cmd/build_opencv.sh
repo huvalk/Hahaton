@@ -54,7 +54,6 @@ apt install -y \
     libcanberra-gtk3* \
     libhdf5-dev \
     libhdf5-serial-dev \
-    libhdf5-103 \
     libqtgui4 \
     libqtwebkit4 \
     libqt4-test \
