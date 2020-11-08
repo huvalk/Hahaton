@@ -1,4 +1,4 @@
-name: Docker build
+name: buildx
 
 on:
   workflow_dispatch:
@@ -7,18 +7,27 @@ on:
       - deploy
 
 jobs:
-  build:
+  buildx:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: crazy-max/ghaction-docker-buildx@v3
+        with:
+          buildx-version: latest
+          qemu-version: latest
+      - name: Available platforms
+        run: echo ${{ steps.buildx.outputs.platforms }}
       - name: Login to DockerHub
         run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-
-      - name: Build Docker images
-        uses: crazy-max/ghaction-docker-buildx@v3.3.1
+      - name: Run Buildx
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/hahaton:latest .
-
+          docker buildx build \
+            --platform linux/arm/v6,linux/arm/v7,linux/arm/v8,linux/arm64 \
+            --output "type=image,push=false" \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/hahaton:latest . \
       - name: Push the images
-        run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/hahaton:latest
+          run: |
+            docker push ${{ secrets.DOCKERHUB_USERNAME }}/hahaton:latest
