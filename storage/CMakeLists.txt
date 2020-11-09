@@ -6,4 +6,4 @@ add_library(storage ${EXECUTABLES})
 target_include_directories(storage PUBLIC ../include)
 
 # All users of this library will need at least C++11
-target_compile_features(storage PUBLIC cxx_std_14)
+#target_compile_features(storage PUBLIC cxx_std_14)
