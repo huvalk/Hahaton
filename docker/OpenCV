@@ -1,8 +1,8 @@
-FROM ubuntu:16.04
+FROM arm32v7/ubuntu:16.04
 
 USER root
 
-COPY cmd /home/cmd
+COPY ../cmd /home/cmd
 
 WORKDIR /home/cmd
 

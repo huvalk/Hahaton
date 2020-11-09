@@ -28,4 +28,4 @@ jobs:
             --platform linux/arm/v7 \
             --output "type=image,push=true" \
             -t ${{ secrets.DOCKERHUB_USERNAME }}/opencv:armv7 \
-            --file ./OpenCV .
+            --file ./docker/OpenCV .
