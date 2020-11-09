@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(
-        Hakaton
-        DESCRIPTION "OpenCV module"
-        LANGUAGES CXX)
+project(Hakaton)
 
 # Only do these if this is the main project, and not if it is included through add_subdirectory
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
