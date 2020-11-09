@@ -5,6 +5,9 @@ USER root
 COPY .. /home/Hahaton
 
 WORKDIR /home/Hahaton
+
+RUN pwd && \
+    ls -al
 	
 RUN mkdir build && \
 	cmake -S . -B build && \
