@@ -2,7 +2,7 @@ FROM huvalk/opencv:armv7
 
 USER root
 
-COPY .. /home/Hahaton
+COPY . /home/Hahaton
 
 WORKDIR /home/Hahaton
 
