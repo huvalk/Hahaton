@@ -10,7 +10,12 @@ RUN pwd && \
     ls -al
 	
 RUN cmake .
+
+
+RUN ls -al
 	
 WORKDIR /home/Hahaton/app
+
+RUN ls -al
 
 CMD ./main
