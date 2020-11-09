@@ -35,7 +35,7 @@ namespace Vision {
 
             if (intersects) {
                 result.push_back(face);
-                std::cout << "Watchtower it" << std::flush;
+                std::cout << "Now it" << std::flush;
             }
         }
 
