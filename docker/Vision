@@ -11,6 +11,8 @@ RUN pwd && \
 	
 RUN cmake .
 
+RUN make
+
 RUN ls -al
 	
 WORKDIR /home/Hahaton/app
