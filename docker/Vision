@@ -9,10 +9,8 @@ WORKDIR /home/Hahaton
 RUN pwd && \
     ls -al
 	
-RUN mkdir build && \
-	cmake -S . -B build && \
-	cmake --build build
+RUN cmake .
 	
-WORKDIR /home/Hahaton/build/app
+WORKDIR /home/Hahaton/app
 
 CMD ./main
