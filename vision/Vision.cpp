@@ -5,8 +5,9 @@
 #include "vision/Vision.hpp"
 #include "vision/FrontalFaceDetector.hpp"
 
-#define FRONTAL_FACE "../haar_cascades/haarcascade_frontalface_default.xml"
-#define FRONTAL_EYE "../haar_cascades/haarcascade_eye.xml"
+//TODO хардкод
+#define FRONTAL_FACE "/home/huvalk/openCV_hakaton/haar_cascades/haarcascade_frontalface_default.xml"
+#define FRONTAL_EYE "/home/huvalk/openCV_hakaton/haar_cascades/haarcascade_eye.xml"
 
 namespace Vision {
 
@@ -19,7 +20,7 @@ namespace Vision {
 
     }
 
-    std::vector<cv::Rect> Vision::performDetection(const cv::Mat& image) {
+    size_t Vision::performDetection(const cv::Mat& image) {
         std::vector<cv::Rect> result_faces{};
 
         for (const auto& face_detector: m_face_detectors) {
@@ -30,6 +31,6 @@ namespace Vision {
                 // TODO Выполнять проверку на пересечение
             }
         }
-        return result_faces;
+        return result_faces.size();
     }
 }

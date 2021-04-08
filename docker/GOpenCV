@@ -1,0 +1,12 @@
+FROM balenalib/raspberrypi3-golang:1.14-sid
+
+USER root
+
+RUN go get -u -d gocv.io/x/gocv
+
+RUN cd $GOPATH/src/gocv.io/x/gocv && \
+    make deps && \
+    make download && \
+    make build && \
+    make sudo_install && \
+    make clean

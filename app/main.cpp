@@ -1,38 +1,43 @@
+#include <cstdlib>
 #include <iostream>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <vision/Vision.hpp>
+#include <vision/Network.hpp>
 
-#define WEBCAM_PATH "/dev/v4l/by-id/usb-046d_0825_AEDDCBD0-video-index0"
+#define WEBCAM_PATH "/dev/v4l/by-id/usb-046d_0825_AEDDCBD0-video-index1"
 
 using namespace std;
 using namespace cv;
 
-int main()
+int main(int argc, char** argv)
 {
-    VideoCapture cap(0);
+    auto cameraString = std::getenv("CAMERA_ID");
+    auto cameraID = std::stoi(cameraString);
+    VideoCapture cap(WEBCAM_PATH);
     Mat image;
-//    cap.open("/dev/v4l/by-id/usb-046d_0825_AEDDCBD0-video-index0");
-    while (!cap.isOpened()) {
-        std::cout << "Unable to reach camera";
-        return 1;
+    if (argc > 1) {
+        cap.open(argv[1]);
     }
+//    while (!cap.isOpened()) {
+//        std::cout << "Unable to reach camera";
+//        return 1;
+//    }
     Vision::Vision vision;
 
-#pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wmissing-noreturn"
     while (true)
     {
         try {
-            cap >> image;
-
-            auto faces = vision.performDetection(image);
-//            for (const auto& face: faces) {
-//                Point center(face.x + face.width*0.5, face.y + face.height*0.5);
-//                ellipse(image, center, Size(face.width*0.5, face.height*0.5),
-//                        0, 0, 360, Scalar(0, 0, 255), 4, 8, 0);
+//            cap >> image;
+//            if(image.empty()) {
+//                std::cout << "Empty image";
+//                break;
 //            }
-//            imshow("Detected Face", image);
+//
+//            auto faces = vision.performDetection(image);
+            auto faces = 15;
+            Network::Sender::sendCameraInfo(cameraID, faces);
         } catch (const cv::Exception& e) {
             std::cout << "cv exception: " << e.msg << std::endl;
         } catch (...) {
@@ -41,7 +46,6 @@ int main()
 
         waitKey(1);
     }
-#pragma clang diagnostic pop
 #pragma clang diagnostic pop
 
     return 0;
