@@ -12,6 +12,6 @@ RUN cmake .
 
 RUN make
 	
-WORKDIR /home/Hahaton/app
+WORKDIR /home/huvalk/openCV_hakaton
 
 CMD ./main
