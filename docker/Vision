@@ -6,6 +6,8 @@ COPY . /home/Hahaton
 
 WORKDIR /home/Hahaton
 
+RUN apt -y update && apt -y install curl
+
 RUN cmake .
 
 RUN make
