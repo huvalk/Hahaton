@@ -16,9 +16,9 @@ int main(int argc, char** argv)
     auto cameraID = std::stoi(cameraString);
     VideoCapture cap(0);
     Mat image;
-    if (argc > 1) {
-        cap.open(argv[1]);
-    }
+//    if (argc > 1) {
+//        cap.open(argv[1]);
+//    }
     while (!cap.isOpened()) {
         std::cout << "Unable to reach camera";
         return 1;
