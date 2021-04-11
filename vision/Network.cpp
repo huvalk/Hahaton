@@ -30,8 +30,6 @@ sendCameraInfo(const int &cameraID, const int &people) {
 
         if(res != CURLE_OK) {
             fprintf(stderr, "error: %s\n", curl_easy_strerror(res));
-        } else {
-            fprintf(stderr, "ok");
         }
         curl_easy_cleanup(curl_handle);
         return res != CURLE_OK;
