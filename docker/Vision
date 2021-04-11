@@ -2,9 +2,9 @@ FROM huvalk/opencv:armv7
 
 USER root
 
-COPY . /home/Hahaton
+COPY . /home/huvalk/openCV_hakaton
 
-WORKDIR /home/Hahaton
+WORKDIR /home/huvalk/openCV_hakaton
 
 RUN apt -y update && apt -y upgrade && apt -y install curl && apt -y install libcurl4-openssl-dev
 
